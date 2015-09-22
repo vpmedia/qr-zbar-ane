@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/17.0">
+    <id>com.sbhave.zbar.example</id>
+    <filename>Example</filename>
+    <name>Example</name>
+    <versionNumber>1.0.2</versionNumber>
+    <initialWindow>
+        <content>Example.swf</content>
+        <renderMode>direct</renderMode>
+        <autoOrients>true</autoOrients>
+        <fullScreen>true</fullScreen>
+    </initialWindow>
+    <android>
+        <manifestAdditions>
+            <![CDATA[            
+            <manifest android:installLocation="auto">                
+                <!--uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /--> 
+                <!--uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /--> 
+                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+                <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+                <uses-permission android:name="android.permission.CAMERA" /> 
+                <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> 
+                <uses-permission android:name="android.permission.INTERNET" /> 
+                <uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+                <uses-permission android:name="android.permission.RECORD_AUDIO" /> 
+                <uses-permission android:name="android.permission.WAKE_LOCK" /> 
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+                <uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
+                <uses-feature android:name="android.hardware.camera" android:required="true"/>
+                <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
+                <uses-feature android:name="android.hardware.camera.flash" android:required="true"/>
+                <application android:hardwareAccelerated="true">
+                    <activity android:name="com.sbhave.nativeExtension.ui.CameraActivity"/>
+                </application>
+            </manifest>            
+        ]]>
+        </manifestAdditions>
+    </android>
+    <iPhone>
+        <!-- https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html -->
+        <InfoAdditions>
+            <![CDATA[
+            <key>UIStatusBarStyle</key> 
+            <string>UIStatusBarStyleBlackOpaque</string> 
+            <key>UIRequiresPersistentWiFi</key> 
+            <string>YES</string>
+            <key>UIPrerenderedIcon</key>  
+            <true/>
+            <key>UIApplicationExitsOnSuspend</key>
+            <true/>
+            <key>UIDeviceFamily</key>
+            <array>
+                <!-- iPhone support -->
+                <string>1</string> 
+                <!-- iPad support -->
+                <string>2</string>
+            </array>
+        ]]>
+        </InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+    <extensions>
+        <extensionID>com.sbhave.nativeExtensions.zbar</extensionID>
+    </extensions>
+</application>
